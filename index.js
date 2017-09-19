@@ -44,12 +44,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/waiters/:username', function(req, res) {
-  res.render('waiters/add', {
+  res.render('add', {
     username: "Hello And Welcome " + req.params.username + " .Can You Please Select The Days You'll Be Available"
   });
 });
 
-app.post('/waiters/:username', waiter.getWaiter);
+app.post('waiters/:username', waiter.getWaiter);
 app.get('/days', waiter.admin);
 
 const port = process.env.PORT || 3000;
