@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // module.exports = function(mongoURL) {
-const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost:27017/waiterModel";
+const mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost:27017/waiters";
 
   mongoose.connect(mongoURL, {
     useMongoClient: true
