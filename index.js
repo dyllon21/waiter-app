@@ -8,7 +8,7 @@ var flash = require('express-flash');
 var app = express();
 
 const Waiter = require('./waiter');
-const models = require('./models/waiterModel');
+const models = require(process.env.MONGO_DB_URL || './models/waiterModel');
 
 const waiter = Waiter(models);
 

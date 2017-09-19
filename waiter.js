@@ -49,7 +49,7 @@ module.exports = function(waiterModel) {
             }
           }
         }
-        res.render('waiters/waiter', {
+        res.render('waiter', {
           Monday: Monday,
           MondayColor: color(Monday.length),
           Tuesday: Tuesday,
@@ -70,14 +70,14 @@ module.exports = function(waiterModel) {
   };
 
   const index = function(req, res) {
-    res.render('waiters/add');
+    res.render('waiter');
   };
 
   const adding = function(req, res, err) {
     if (err) {
       console.log(err);
     } else {
-      res.render('waiters/add', {
+      res.render('waiter', {
         name: waiterList
       });
     }
@@ -114,7 +114,7 @@ module.exports = function(waiterModel) {
       });
     }
 
-    res.render('waiters/add', {
+    res.render('waiter', {
       name: name,
       day: day,
       message: "Was successfully selected.Thank You"
