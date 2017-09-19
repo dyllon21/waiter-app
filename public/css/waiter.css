@@ -23,6 +23,7 @@ body {
   font-size-adjust: cover;
   border-spacing: 12em;
 }
+
 .table {
   padding: 4em;
   color: #fff;
@@ -38,37 +39,41 @@ table, td, tr {
   align: inherit;
   border-color: #fff;
 }
+
 li {
-    display: block;
-    list-style-type: disc;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    /*padding-left: 40px;*/
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  /*padding-left: 40px;*/
 }
 
-th, .highlight1{
-  border-color: #fff;
-  padding: 1em;
-  font-size: 42px;
-  align: center;
-}
-th, .highlight2{
+th, .highlight1 {
   border-color: #fff;
   padding: 1em;
   font-size: 42px;
   align: center;
 }
 
-.NB1{
+th, .highlight2 {
+  border-color: #fff;
+  padding: 1em;
+  font-size: 42px;
+  align: center;
+}
+
+.NB1 {
   color: #07c40a;
 }
-.NB2{
+
+.NB2 {
   color: #fc1d00;
 }
-.NB3{
-  color: #ff8000;
+
+.NB3 {
+  color: #ffff00;
 }
 
 .highlight1 {
@@ -83,38 +88,62 @@ th, .highlight2{
 
 .highlight3 {
   font-size: 1em;
-  background-color: orange;
+  background-color: gold;
+  padding-left: 25px;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #0080ff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 input {
-  align-content: flex-end;
+  align-content: flex-start;
   position: left;
   margin: 5px 10px;
   background-color: #4BABBD;
   color: #fff;
-  width: 60px;
+  width: 25px;
   height: 25px;
   border: 1px solid #4BABBD;
   cursor: pointer;
-  -webkit-box-shadow: 1px 1px 1px 1px grey;
-  -moz-box-shadow: 1px 1px 1px 1px grey;
-  box-shadow: 1px 1px 1px 1px grey;
-  -webkit-transition: 300ms ease-in-out;
-  -moz-transition: 300ms ease-in-out;
-  transition: 300ms ease-in-out;
 }
 
-input:hover {
-  background-color: #39698A;
-  color: #fff;
-  width: 70px;
-  border: 5px solid #39698A;
-  cursor: pointer;
-  -webkit-transition: 300ms ease-in-out;
-  -moz-transition: 300ms ease-in-out;
-  transition: 300ms ease-in-out;
-}
-.output{
+.output {
   padding: 1em;
   color: dodgerblue;
   background-color: black;
