@@ -77,7 +77,7 @@ module.exports = function(waiterModel) {
     if (err) {
       console.log(err);
     } else {
-      res.render('waiter', {
+      res.render('add', {
         name: waiterList
       });
     }
@@ -114,7 +114,7 @@ module.exports = function(waiterModel) {
       });
     }
 
-    res.render('waiter', {
+    res.render('add', {
       name: name,
       day: day,
       message: "Was successfully selected.Thank You"
