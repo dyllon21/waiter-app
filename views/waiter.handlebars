@@ -1,0 +1,99 @@
+<div class='header'>
+  <h1 id="Welcome">Welcome</h1>
+  <a href="/waiters/add"><b>back Home</b></a>
+
+</div>
+<br>
+<section>
+  <div class='NB1'>
+    <p>
+      <b>GREEN:</b>
+      <em>Enough</em> <em>Waiters</em></p>
+  </div>
+  <div class='NB2'>
+    <p>
+      <b>RED:</b>
+      <em>In</em> <em>Need</em> <em>Of</em> <em>Waiters</em></p>
+  </div>
+  <div class='NB3'>
+    <p>
+      <b>ORANGE:</b>
+      <em>Too</em> <em>Many</em> <em>Waiters</em>
+    </p>
+  </div>
+
+</section>
+<form class="" action="" method="post">
+</form>
+<br>
+<br>
+<div class='table'>
+  <table border='' align='center'>
+    <tr>
+      <th class="{{MondayColor}}">Monday</th>
+      <th class="{{TuesdayColor}}">Tuesday</th>
+      <th class="{{WednesdayColor}}">Wednesday</th>
+      <th class="{{ThursdayColor}}">Thursday</th>
+      <th class="{{FridayColor}}">Friday</th>
+      <th class="{{SaturdayColor}}">Saturday</th>
+      <th class="{{SundayColor}}">Sunday</th>
+    </tr>
+
+    <tr>
+      <td>
+        {{#Monday}}
+        <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/Monday}}
+      </td>
+      <td>
+        {{#Tuesday}}
+          <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/Tuesday}}
+      </td>
+      <td>
+        {{#Wednesday}}
+          <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/Wednesday}}
+      </td>
+      <td>
+        {{#Thursday}}
+          <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/Thursday}}
+      </td>
+      <td>
+        {{#Friday}}
+          <ul>
+            <li>{{this}}</li>
+          </ul>
+        {{/Friday}}
+      </td>
+      <td>
+        {{#Saturday}}
+          <ul>
+            <li>{{this}}</li>
+        {{/Saturday}}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {{#Sunday}}
+            <li>{{this}}</li>
+          {{/Sunday}}
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+<br><br>
+<br>
+<div class='footer'>
+
+</div>

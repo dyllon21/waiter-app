@@ -1,0 +1,125 @@
+table, th, td, tr {
+  border: 1px solid black;
+  border-spacing: 3em;
+  padding: 4em;
+}
+
+h1 {
+  font-size: 2em;
+  color: red;
+}
+
+body {
+  background-color: silver;
+  margin: 0;
+}
+
+.header {
+  padding: 1em;
+  color: dodgerblue;
+  background-color: black;
+  text-align: center;
+  font-family: sans-serif;
+  font-size-adjust: cover;
+  border-spacing: 12em;
+}
+.table {
+  padding: 4em;
+  color: #fff;
+  background-color: black;
+  text-align: center;
+  font-family: sans-serif;
+  font-size-adjust: cover;
+  border-spacing: 12em;
+}
+
+table, td, tr {
+  width: 100% border: 0.1px solid black;
+  align: inherit;
+  border-color: #fff;
+}
+li {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    /*padding-left: 40px;*/
+}
+
+th, .highlight1{
+  border-color: #fff;
+  padding: 1em;
+  font-size: 42px;
+  align: center;
+}
+th, .highlight2{
+  border-color: #fff;
+  padding: 1em;
+  font-size: 42px;
+  align: center;
+}
+
+.NB1{
+  color: #07c40a;
+}
+.NB2{
+  color: #fc1d00;
+}
+.NB3{
+  color: #ff8000;
+}
+
+.highlight1 {
+  font-size: 1em;
+  background-color: green;
+}
+
+.highlight2 {
+  font-size: 1em;
+  background-color: red;
+}
+
+.highlight3 {
+  font-size: 1em;
+  background-color: orange;
+}
+
+input {
+  align-content: flex-end;
+  position: left;
+  margin: 5px 10px;
+  background-color: #4BABBD;
+  color: #fff;
+  width: 60px;
+  height: 25px;
+  border: 1px solid #4BABBD;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 1px 1px grey;
+  -moz-box-shadow: 1px 1px 1px 1px grey;
+  box-shadow: 1px 1px 1px 1px grey;
+  -webkit-transition: 300ms ease-in-out;
+  -moz-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+input:hover {
+  background-color: #39698A;
+  color: #fff;
+  width: 70px;
+  border: 5px solid #39698A;
+  cursor: pointer;
+  -webkit-transition: 300ms ease-in-out;
+  -moz-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+.output{
+  padding: 1em;
+  color: dodgerblue;
+  background-color: black;
+  text-align: center;
+  font-family: sans-serif;
+  font-size-adjust: cover;
+  border-spacing: 12em;
+}

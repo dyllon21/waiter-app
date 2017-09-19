@@ -1,0 +1,43 @@
+{
+  "name": "waiter_webapp",
+  "version": "1.0.0",
+  "description": "the reliable waiter",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyllon21/waiter_webapp.git"
+  },
+  "engines": {
+    "node": "4.2.6"
+  },
+  "author": "dyllon-isaacs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dyllon21/waiter_webapp/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "handlebars": "^4.0.10",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.11",
+    "nodemon": "^1.12.0"
+  },
+  "homepage": "https://github.com/dyllon21/waiter_webapp#readme",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "deploying",
+    "to",
+    "heroku"
+  ]
+}
