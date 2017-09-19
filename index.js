@@ -49,7 +49,7 @@ app.get('/waiters/:username', function(req, res) {
   });
 });
 
-app.post('waiters/:username', waiter.getWaiter);
+app.post('/waiters/:username', waiter.getWaiter);
 app.get('/days', waiter.admin);
 
 const port = process.env.PORT || 3000;
