@@ -73,21 +73,12 @@ module.exports = function(waiterModel) {
     res.render('waiter');
   };
 
-  // const adding = function(req, res, err) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     res.render('add', {
-  //       name: waiterList
-  //     });
-  //   }
-  // };
   var getWaiter = function(req, res) {
 
     daysObject = {};
     var name = req.params.username;
     var day = req.body.day;
-    var button = req.body.submit;
+    console.log(day);
 
     if (waiterList[name] === undefined) {
       for (var i = 0; i < day.length; i++) {
@@ -113,18 +104,76 @@ module.exports = function(waiterModel) {
         }
       });
     }
-
     res.render('add', {
       name: name,
       day: day,
       message: "Was successfully selected.Thank You"
     });
   };
+  var waiterScreen = function(req, res, next) {
+    var user = req.body.username;
+    var waiterName = user.substring(0, 1).toUpperCase() + ' ' + user.substring(
+      1).toUpperCase()
+    waiterModel.findOne({
+      username: name
+    }, {
+      'day.day': 1,
+      id: 0
+    }, function(err, workingDays) {
+      if (workingDays) {
+        var selectedDays = workingDays.day;
+        var confirmedDays = {};
+        var lastSelection = function(waiterSelect) {
+          for (var i = 0; i < selectedDays.length; i++) {
+
+            if (confirmedDays[selectedDays[i].day] === undefined) {
+              confirmedDays[selectedDays[i].day] = checked = "checked";
+            }
+          }
+          return confirmedDays
+        }
+        var dayList = [];
+        for (var i = 0; i < selectedDays.length; i++) {
+          var da = selectedDays[i].name;
+          if (da) {
+            dayList.push(da)
+          }
+        }
+        if (dayList.length !== 0) {
+          lastSelection(selectedDays)
+          res.render('add', {
+            message: 'Welcome Back ' + waiterName + ' confirmedDays: ',
+            update: ' feel free to update new working days',
+            previousDays: confirmedDays,
+            waiterName
+          })
+        }
+      } else {
+        res.render('add', {
+          message: 'Welcome ' + waiterName,
+          waiterName
+        })
+      }
+
+    })
+
+  }
+
+
+  function resetWaiters(req, res, next) {
+    waiterModel.remove({}, function(err, db) {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect("/")
+    })
+  }
+
 
   return {
     index,
     getWaiter,
     admin,
-    // adding
+    resetWaiters
   };
 };

@@ -40,17 +40,21 @@ app.use(session({
 var format = require('util').format;
 
 app.get('/', function(req, res) {
-  res.redirect('/add')
+  res.redirect('/days')
 });
 
 app.get('/waiters/:username', function(req, res) {
   res.render('add', {
-    username: "Hello And Welcome " + req.params.username + " .Can You Please Select The Days You'll Be Available"
+    username: "Hello And Welcome " + req.params.username + ".Can You Please Select The Days You'll Be Available"
   });
 });
 
+// app.get('/waiters/:username', waiter.index);
+
 app.post('/waiters/:username', waiter.getWaiter);
 app.get('/days', waiter.admin);
+app.get('/days/resetWaiters', waiter.resetWaiters);
+app.post('/days/resetWaiters', waiter.resetWaiters);
 
 const port = process.env.PORT || 3000;
 

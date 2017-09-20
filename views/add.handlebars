@@ -1,32 +1,34 @@
 <div class='header'>
   <h1>Waiter Availability App</h1>
-  <a href="/days"><b>available waiters</b></a>
+  <div class='profile'>
+    <p><button class='button'><span><a href="https://dyllon21.github.io/portfolio/" target="_blank"><em><b>My</b></em> <em><b>Profile</b></em></span></buttton></a>
+    </div>
+  <a href="/days"><b><em>available</em> <em>waiters</em></b></a>
 </div>
 <br>
 <br> <b>{{username}}</b> <b>{{name}}</b>
-<form id="checkForm" method='post' action="" onsubmit='return is_checked()'>
+<form action="" method='post'>
   <br>
-  <div class="checkBox">
-    <label><input type="checkbox" name="day" value="Monday" id='MONDAY'>MONDAY</label>
-    <label><input type="checkbox" name="day" value="Tuesday" id='TUESDAY'> TUESDAY</label>
-    <label><input type="checkbox" name="day" value="Wednesday" id='WEDNESDAY' > WEDNESDAY</label>
-    <label><input type="checkbox" name="day" value="Thursday" id='THURSDAY'> THURSDAY</label>
-    <label><input type="checkbox" name="day" value="Friday" id='FRIDAY'>FRIDAY</label>
-    <label><input type="checkbox" name="day" value="Saturday" id='SATURDAY'> SATURDAY</label>
-    <label><input type="checkbox" name="day" value="Sunday" id='SUNDAY'> SUNDAY</label><br><br>
+  <!-- <div class="checkBox"> -->
+    <label><input type="checkbox" name="day" value="Monday" {{#if day.Monday}} checked {{/if}}>MONDAY</label>
+    <label><input type="checkbox" name="day" value="Tuesday">TUESDAY</label>
+    <label><input type="checkbox" name="day" value="Wednesday">WEDNESDAY</label>
+    <label><input type="checkbox" name="day" value="Thursday">THURSDAY</label>
+    <label><input type="checkbox" name="day" value="Friday">FRIDAY</label>
+    <label><input type="checkbox" name="day" value="Saturday">SATURDAY</label>
+    <label><input type="checkbox" name="day" value="Sunday">SUNDAY</label><br><br>
     <!-- <input type='submit' name='submit' value='SUBMIT'> -->
-  </div>
+  <!-- </div> -->
   <button class='button'>
     <span>Submit</span></button>
-
-</form>
-<br><br>
-<div class="output">
-  <p>
-    <h1 class="">{{name}}</h1>
-    {{#each day}}
-      {{this}}
-    {{/each}}
-    <br> {{message}}
-  </p>
-</div>
+      </form>
+      <br><br>
+      <div class="output">
+        <p>
+          <h1 class="">{{name}}</h1>
+          {{#each day}}
+            {{this}}
+          {{/each}}
+          <br> {{message}}
+        </p>
+      </div>

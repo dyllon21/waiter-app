@@ -110,7 +110,10 @@ th, .highlight2 {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
+  transition: 0.10s;
+  padding-top: -0.1em;
+  padding-bottom: -0.1em;
+
 }
 
 .button span:after {
@@ -123,7 +126,7 @@ th, .highlight2 {
 }
 
 .button:hover span {
-  padding-right: 25px;
+  padding-right: 20px;
 }
 
 .button:hover span:after {
