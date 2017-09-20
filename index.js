@@ -4,7 +4,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var flash = require('express-flash');
+// var flash = require('express-flash');
 var app = express();
 
 const Waiter = require('./waiter');
@@ -21,7 +21,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 app.use(express.static('views'));
-app.use(flash());
+// app.use(flash());
 
 app.use(bodyParser.urlencoded({
   extended: false

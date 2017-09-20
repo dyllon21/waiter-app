@@ -73,15 +73,15 @@ module.exports = function(waiterModel) {
     res.render('waiter');
   };
 
-  const adding = function(req, res, err) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('add', {
-        name: waiterList
-      });
-    }
-  };
+  // const adding = function(req, res, err) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     res.render('add', {
+  //       name: waiterList
+  //     });
+  //   }
+  // };
   var getWaiter = function(req, res) {
 
     daysObject = {};
@@ -125,6 +125,6 @@ module.exports = function(waiterModel) {
     index,
     getWaiter,
     admin,
-    adding
+    // adding
   };
 };
