@@ -24,31 +24,32 @@ module.exports = function(waiterModel) {
     var Sunday = [];
 
     waiterModel.find({}, function(err, result) {
-      if (err) {
-        console.log(err);
-      } else {
-        var waiters = result;
+        if (err) {
+          console.log(err);
+        } else {
+          var waiters = result;
 
-        for (var i = 0; i < waiters.length; i++) {
-          var currentWaiter = waiters[i].day;
-          for (var day in currentWaiter) {
-            if (day == 'Monday') {
-              Monday.push(waiters[i].username);
-            } else if (day == 'Tuesday') {
-              Tuesday.push(waiters[i].username);
-            } else if (day == 'Wednesday') {
-              Wednesday.push(waiters[i].username);
-            } else if (day == 'Thursday') {
-              Thursday.push(waiters[i].username);
-            } else if (day == 'Friday') {
-              Friday.push(waiters[i].username);
-            } else if (day == 'Saturday') {
-              Saturday.push(waiters[i].username);
-            } else if (day == 'Sunday') {
-              Sunday.push(waiters[i].username);
+          for (var i = 0; i < waiters.length; i++) {
+            var currentWaiter = waiters[i].day;
+            for (var day in currentWaiter) {
+              if (day == 'Monday') {
+                Monday.push(waiters[i].username);
+              } else if (day == 'Tuesday') {
+                Tuesday.push(waiters[i].username);
+              } else if (day == 'Wednesday') {
+                Wednesday.push(waiters[i].username);
+              } else if (day == 'Thursday') {
+                Thursday.push(waiters[i].username);
+              } else if (day == 'Friday') {
+                Friday.push(waiters[i].username);
+              } else if (day == 'Saturday') {
+                Saturday.push(waiters[i].username);
+              } else if (day == 'Sunday') {
+                Sunday.push(waiters[i].username);
+              }
             }
           }
-        }
+
         res.render('waiter', {
           Monday: Monday,
           MondayColor: color(Monday.length),
@@ -67,113 +68,107 @@ module.exports = function(waiterModel) {
         });
       }
     });
-  };
 
-  const index = function(req, res) {
-    res.render('waiter');
-  };
+};
 
-  var getWaiter = function(req, res) {
 
-    daysObject = {};
-    var name = req.params.username;
-    var day = req.body.day;
-    console.log(day);
+const index = function(req, res) {
+  res.render('add', {
+    waiter
+  });
+  // waiterModel.find({}, function(err, waiter) {
+  //   if (err) {
+  //     return next(err);
+  //   }
+  // });
+};
 
-    if (waiterList[name] === undefined) {
-      for (var i = 0; i < day.length; i++) {
-        daysObject[day[i]] = true;
-      }
-      waiterList = {
-        username: name,
-        day: daysObject
-      };
+var getWaiter = function(req, res) {
+  daysObject = {};
+  var name = req.params.username;
+  var day = req.body.day;
+  console.log(day);
 
-      waiterModel.findOneAndUpdate({
-        username: name
-      }, {
-        day: daysObject
-      }, function(err, result) {
-        if (err) {
-          console.log(err);
-        } else if (!result) {
-          waiterModel.create({
-            username: name,
-            day: daysObject
-          });
-        }
-      });
+  if (waiterList[name] === undefined) {
+    for (var i = 0; i < day.length; i++) {
+      daysObject[day[i]] = true;
     }
-    res.render('add', {
-      name: name,
-      day: day,
-      message: "Was successfully selected.Thank You"
-    });
-  };
-  var waiterScreen = function(req, res, next) {
-    var user = req.body.username;
-    var waiterName = user.substring(0, 1).toUpperCase() + ' ' + user.substring(
-      1).toUpperCase()
-    waiterModel.findOne({
+    waiterList = {
+      username: name,
+      day: daysObject
+    };
+
+    waiterModel.findOneAndUpdate({
       username: name
     }, {
-      'day.day': 1,
-      id: 0
-    }, function(err, workingDays) {
-      if (workingDays) {
-        var selectedDays = workingDays.day;
-        var confirmedDays = {};
-        var lastSelection = function(waiterSelect) {
-          for (var i = 0; i < selectedDays.length; i++) {
-
-            if (confirmedDays[selectedDays[i].day] === undefined) {
-              confirmedDays[selectedDays[i].day] = checked = "checked";
-            }
-          }
-          return confirmedDays
-        }
-        var dayList = [];
-        for (var i = 0; i < selectedDays.length; i++) {
-          var da = selectedDays[i].name;
-          if (da) {
-            dayList.push(da)
-          }
-        }
-        if (dayList.length !== 0) {
-          lastSelection(selectedDays)
-          res.render('add', {
-            message: 'Welcome Back ' + waiterName + ' confirmedDays: ',
-            update: ' feel free to update new working days',
-            previousDays: confirmedDays,
-            waiterName
-          })
-        }
-      } else {
-        res.render('add', {
-          message: 'Welcome ' + waiterName,
-          waiterName
-        })
-      }
-
-    })
-
-  }
-
-
-  function resetWaiters(req, res, next) {
-    waiterModel.remove({}, function(err, db) {
+      day: daysObject
+    }, function(err, result) {
       if (err) {
         console.log(err);
+      } else if (!result) {
+        waiterModel.create({
+          username: name,
+          day: daysObject
+        });
       }
-      res.redirect("/")
-    })
+    });
   }
+        res.render('add', {
+          name: name,
+          day: day,
+          message: "Was selected.Thank You",
+        });
+      }
+    // waiterModel.findOne({
+    //   username: name,
+    //   day: daysObject
+    // }, function(err, result) {
+    //   if (err) {
+    //     return done(err)
+    //   } else {
+    //     if (result) {
+    //       var msg = '';
+    //       var info = 'here are your previous working days:';
+    //       msg = 'welcome back ' + waiterId + '. please update your available days';
+    //
+    //       var checkedDays = result.Day;
+    //
+    //       var selected = {};
+    //       var dayMap = function(workingDays) {
+    //         for (var i = 0; i < checkedDays.length; i++) {
+    //           var dyllon = checkedDays[i];
+    //           if (selected[dyllon] === undefined) {
+    //             selected[dyllon] = 'checked';
+    //           }
+    //         }
+    //         return selected;
+    //       }
+    //       dayMap(checkedDays)
+    //
+    //       var display = {
+    //         name: result.name,
+    //         day: result.Day,
+    //         msg: msg,
+    //         info: info,
+    //         day: day,
+    //         selected: selected
+    //       }
+    //       res.render('add', display)
+
+function resetWaiters(req, res) {
+  waiterModel.remove({}, function(err, db) {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/")
+  })
+}
 
 
-  return {
-    index,
-    getWaiter,
-    admin,
-    resetWaiters
-  };
+return {
+  index,
+  getWaiter,
+  admin,
+  resetWaiters
 };
+}

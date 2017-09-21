@@ -5,23 +5,25 @@
     </div>
   <a href="/days"><b><em>available</em> <em>waiters</em></b></a>
 </div>
+<div class="success">
+    {{messages.success}}
+</div>
 <br>
-<br> <b>{{username}}</b> <b>{{name}}</b>
+<br>  <b>{{username}}</b>
 <form action="" method='post'>
   <br>
-  <!-- <div class="checkBox"> -->
-    <label><input type="checkbox" name="day" value="Monday" {{#if day.Monday}} checked {{/if}}>MONDAY</label>
+  <label><input type="checkbox" name="day" value="Monday">MONDAY</label>
     <label><input type="checkbox" name="day" value="Tuesday">TUESDAY</label>
     <label><input type="checkbox" name="day" value="Wednesday">WEDNESDAY</label>
     <label><input type="checkbox" name="day" value="Thursday">THURSDAY</label>
     <label><input type="checkbox" name="day" value="Friday">FRIDAY</label>
     <label><input type="checkbox" name="day" value="Saturday">SATURDAY</label>
     <label><input type="checkbox" name="day" value="Sunday">SUNDAY</label><br><br>
-    <!-- <input type='submit' name='submit' value='SUBMIT'> -->
-  <!-- </div> -->
+
   <button class='button'>
     <span>Submit</span></button>
       </form>
+
       <br><br>
       <div class="output">
         <p>

@@ -4,7 +4,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-// var flash = require('express-flash');
+var flash = require('express-flash');
 var app = express();
 
 const Waiter = require('./waiter');
@@ -21,7 +21,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 app.use(express.static('views'));
-// app.use(flash());
+app.use(flash());
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -44,15 +44,20 @@ app.get('/', function(req, res) {
 });
 
 app.get('/waiters/:username', function(req, res) {
-  res.render('add', {
-    username: "Hello And Welcome " + req.params.username + ".Can You Please Select The Days You'll Be Available"
-  });
+  models.findOne({
+    username: 'thabang'
+  }, function (err, results) {
+
+    res.render('add', {
+      day:results,
+      username: "Hello And Welcome " + req.params.username + ".Can You Please Select The Days You'll Be Available"
+    });
+  })
 });
-
-// app.get('/waiters/:username', waiter.index);
-
 app.post('/waiters/:username', waiter.getWaiter);
+
 app.get('/days', waiter.admin);
+
 app.get('/days/resetWaiters', waiter.resetWaiters);
 app.post('/days/resetWaiters', waiter.resetWaiters);
 
