@@ -40,7 +40,7 @@ app.use(session({
 var format = require('util').format;
 
 app.get('/', function(req, res) {
-  res.redirect('/days')
+  res.redirect('/waiter')
 });
 
 app.get('/waiters/:username', function(req, res) {
