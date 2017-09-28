@@ -28,7 +28,7 @@
 
 * For Users :
 
-- You Can Go Visit My Application At https://waiter21.herokuapp.com/waiters/<ur name here> And Follow Instructions Below :
+- You Can Go Visit My Application At https://waiter21.herokuapp.com/waiters/name And Follow Instructions Below :
 
 * Firstly You Need To Enter A Name(waiter) Into The URL After The waiters route/.
 
@@ -40,7 +40,7 @@
 
 # Examples :
 
-* Have A look In Reality https://waiter21.herokuapp.com/waiters/<ur name here>
+* Have A look In Reality https://waiter21.herokuapp.com/waiters/name
 
 
 ## Home Page :
